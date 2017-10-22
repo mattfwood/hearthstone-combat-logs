@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Our Code World Rocks</title>
+  </head>
+  <script>
+    var LogWatcher = require('hearthstone-log-watcher');
+    var logWatcher = new LogWatcher();
+    
+    logWatcher.on('zone-change', function (data) {
+      console.log(data.cardName + ' has moved from ' + data.fromTeam + ' ' + data.fromZone + ' to ' + data.toTeam + ' ' + data.toZone);
+    });
+    
+    logWatcher.start();
+  </script>
+  <body>
+    <h1>Our Code World Hard Disks <span><img  style="height:40px;width:40px;" src="http://ourcodeworld.com/resources/img/ocw-empty.png"/></span></h1>
+    <br>
+    <button type="button" id="start">Select folder to watch</button>
+    <button type="button" id="stop" style="display:none;">Stop watching</button>
+    <br>
+    <button type="button" onclick="resetLog();">Reset log</button>
+    <span id="messageLogger"></span>
+    <ul id="log-container">
+    </ul>
+    <script src="app.js">
+    </script>
+  </body>
+</html>
